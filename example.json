@@ -1,0 +1,77 @@
+
+{
+  "api": {
+    "base_url": "https://testserver.host"
+  },
+  "test_cases": [
+    {
+      "id": "TC001",
+      "description": "GET request",
+      "request": {
+        "method": "GET",
+        "path": "/echo"
+      },
+      "expected": {
+        "status_code": 200
+      }
+    },
+    {
+      "id": "TC002",
+      "description": "POST request with JSON body",
+      "request": {
+        "method": "POST",
+        "path": "/echo",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "json": {
+          "name": "API Test Pilot",
+          "active": true
+        }
+      },
+      "expected": {
+        "status_code": 200
+      }
+    },
+    {
+      "id": "TC003",
+      "description": "PUT request with JSON body",
+      "request": {
+        "method": "PUT",
+        "path": "/echo",
+        "json": {
+          "name": "Updated API Test Pilot"
+        }
+      },
+      "expected": {
+        "status_code": 200
+      }
+    },
+    {
+      "id": "TC004",
+      "description": "PATCH request with JSON body",
+      "request": {
+        "method": "PATCH",
+        "path": "/echo",
+        "json": {
+          "active": false
+        }
+      },
+      "expected": {
+        "status_code": 200
+      }
+    },
+    {
+      "id": "TC005",
+      "description": "DELETE request",
+      "request": {
+        "method": "DELETE",
+        "path": "/echo"
+      },
+      "expected": {
+        "status_code": 200
+      }
+    }
+  ]
+}
+
