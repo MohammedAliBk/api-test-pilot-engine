@@ -1,77 +1,75 @@
-
 {
   "api": {
-    "base_url": "https://testserver.host"
+    "base_url": "https://httpbingo.org"
   },
   "test_cases": [
     {
-      "id": "TC001",
-      "description": "GET request",
+      "id": "GET001",
+      "description": "GET response body and content type",
       "request": {
         "method": "GET",
-        "path": "/echo"
+        "path": "/json"
       },
       "expected": {
-        "status_code": 200
+        "status_code": 200,
+        "headers": {
+          "content-type": "application/json"
+        },
+        "body": {
+          "slideshow": {
+            "author": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          }
+        },
+        "max_duration_ms": 3000
       }
     },
     {
-      "id": "TC002",
-      "description": "POST request with JSON body",
+      "id": "GET002",
+      "description": "Query parameter is reflected",
+      "request": {
+        "method": "GET",
+        "path": "/get",
+        "query": {
+          "project": "api-test-pilot"
+        }
+      },
+      "expected": {
+        "status_code": 200,
+        "body": {
+          "args": {
+            "project": ["api-test-pilot"]
+          }
+        }
+      }
+    },
+    {
+      "id": "POST001",
+      "description": "POST JSON body is reflected",
       "request": {
         "method": "POST",
-        "path": "/echo",
+        "path": "/post",
         "headers": {
           "Content-Type": "application/json"
         },
         "json": {
           "name": "API Test Pilot",
-          "active": true
+          "version": 1
         }
       },
       "expected": {
-        "status_code": 200
-      }
-    },
-    {
-      "id": "TC003",
-      "description": "PUT request with JSON body",
-      "request": {
-        "method": "PUT",
-        "path": "/echo",
-        "json": {
-          "name": "Updated API Test Pilot"
+        "status_code": 200,
+        "body": {
+          "json": {
+            "name": "API Test Pilot",
+            "version": 1
+          }
         }
-      },
-      "expected": {
-        "status_code": 200
-      }
-    },
-    {
-      "id": "TC004",
-      "description": "PATCH request with JSON body",
-      "request": {
-        "method": "PATCH",
-        "path": "/echo",
-        "json": {
-          "active": false
-        }
-      },
-      "expected": {
-        "status_code": 200
-      }
-    },
-    {
-      "id": "TC005",
-      "description": "DELETE request",
-      "request": {
-        "method": "DELETE",
-        "path": "/echo"
-      },
-      "expected": {
-        "status_code": 200
       }
     }
   ]
 }
-

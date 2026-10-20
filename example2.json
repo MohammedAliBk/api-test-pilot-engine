@@ -1,0 +1,74 @@
+
+{
+  "api": {
+    "base_url": "https://httpbingo.org"
+  },
+  "test_cases": [
+    {
+      "id": "GET001",
+      "description": "Test GET",
+      "request": {
+        "method": "GET",
+        "path": "/get"
+      },
+      "expected": {
+        "status_code": 200
+      }
+    },
+    {
+      "id": "POST001",
+      "description": "Test POST with JSON",
+      "request": {
+        "method": "POST",
+        "path": "/post",
+        "json": {
+          "name": "API Test Pilot",
+          "version": 1
+        }
+      },
+      "expected": {
+        "status_code": 200
+      }
+    },
+    {
+      "id": "PUT001",
+      "description": "Test PUT with JSON",
+      "request": {
+        "method": "PUT",
+        "path": "/put",
+        "json": {
+          "name": "Updated Project"
+        }
+      },
+      "expected": {
+        "status_code": 200
+      }
+    },
+    {
+      "id": "PATCH001",
+      "description": "Test PATCH with JSON",
+      "request": {
+        "method": "PATCH",
+        "path": "/patch",
+        "json": {
+          "active": true
+        }
+      },
+      "expected": {
+        "status_code": 200
+      }
+    },
+    {
+      "id": "DELETE001",
+      "description": "Test DELETE",
+      "request": {
+        "method": "DELETE",
+        "path": "/delete"
+      },
+      "expected": {
+        "status_code": 200
+      }
+    }
+  ]
+}
+
